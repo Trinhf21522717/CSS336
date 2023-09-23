@@ -6,6 +6,7 @@
   "scripts": {
     "start": "node server.js ",
     "test": "node test.js",
+    "build": "npm install express-handlebars",
     "dev": "nodemon server.js"
   },
   "author": "",
