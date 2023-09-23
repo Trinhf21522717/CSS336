@@ -15,7 +15,7 @@ app.use(express.json())
 
 
 app.use('/', homeR)
-port = 200
+port = 3002
 
 app.listen(port, () => {
     console.log('Server running at port http://localhost:' + port);
