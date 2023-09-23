@@ -13,7 +13,20 @@ app.use(cookieParser())
 app.use(express.urlencoded({ extended: false }))
 app.use(express.json())
 
-
+var success = false;
+var startTime = new Date().getTime();
+try {
+    success = dependency.Call();
+}
+finally {
+    var elapsed = new Date() - startTime;
+    telemetry.trackDependency({
+        dependencyTypeName: "myDependency",
+        name: "myCall",
+        duration: elapsed,
+        success: success
+    });
+}
 app.use('/', homeR)
 port = 3002
 
