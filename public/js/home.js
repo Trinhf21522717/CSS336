@@ -333,6 +333,7 @@ const app = {
 
     },
     loadcurrentsong: async function () {
+
         if (app.songs.length > 0) {
             const currensong = this.getcurrentsong()
             await fetch("/",

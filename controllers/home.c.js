@@ -12,6 +12,7 @@ module.exports = {
     },
     portMusic: async function (req, res) {
         const path = await Music.getPathbyID(req.body.id)
+        // console.log(path);
         res.json({ path: path[0].path })
     },
     deleteMusic: async function (req, res) {

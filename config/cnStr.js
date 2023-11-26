@@ -1,6 +1,6 @@
 module.exports = {
-    server: 'quang.database.windows.net',
-    database: 'quang',
+    server: 'https://sqliteonline.com/#sharedb=s%3Ahector',
+    database: 'Music',
     user: 'quang',
     password: 'tuanlong123!',
     options: {
