@@ -13,10 +13,9 @@ app.use(cookieParser())
 app.use(express.urlencoded({ extended: false }))
 app.use(express.json())
 
-var success = false;
-var startTime = new Date().getTime();
 
 app.use('/', homeR)
+
 port = process.env.PORT || 3002;
 
 app.listen(port, () => {

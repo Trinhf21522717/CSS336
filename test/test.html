@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    #movableObject {
+      width: 50px;
+      height: 50px;
+      background-color: red;
+      position: absolute;
+    }
+  </style>
+  <title>Move Object with Mouse</title>
+</head>
+
+<body>
+
+  <div id="movableObject"></div>
+
+  <script>
+    // Lấy tham chiếu đến đối tượng có thể di chuyển
+    var movableObject = document.getElementById("movableObject");
+
+    // Theo dõi sự kiện khi chuột được nhấn xuống
+    movableObject.addEventListener("mousedown", startDragging);
+
+    // Theo dõi sự kiện khi chuột được nhả ra
+    movableObject.addEventListener("mouseup", stopDragging);
+
+    // Theo dõi sự kiện khi chuột di chuyển
+    document.addEventListener("mousemove", dragObject);
+
+    // Các biến lưu trữ thông tin về trạng thái di chuyển
+    var isDragging = false;
+    var offsetX, offsetY;
+
+    // Hàm bắt đầu di chuyển
+    function startDragging(e) {
+      isDragging = true;
+      offsetX = e.clientX - movableObject.getBoundingClientRect().left;
+      offsetY = e.clientY - movableObject.getBoundingClientRect().top;
+    }
+
+    // Hàm kết thúc di chuyển
+    function stopDragging() {
+      isDragging = false;
+    }
+
+    // Hàm di chuyển đối tượng
+    function dragObject(e) {
+      if (isDragging) {
+        var x = e.clientX - offsetX;
+        var y = e.clientY - offsetY;
+
+        // Giới hạn vị trí của đối tượng để không di chuyển ra khỏi biên của trình duyệt
+        x = Math.max(0, Math.min(window.innerWidth - movableObject.offsetWidth, x));
+        y = Math.max(0, Math.min(window.innerHeight - movableObject.offsetHeight, y));
+
+        // Cập nhật vị trí của đối tượng
+        movableObject.style.left = x + "px";
+        movableObject.style.top = y + "px";
+      }
+    }
+  </script>
+
+</body>
+
+</html>

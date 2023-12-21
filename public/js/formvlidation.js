@@ -85,7 +85,7 @@ function Validator(options) {
                                 values[input.name].push(input.value);
                                 break;
                             case 'file':
-                                values[input.name] = '/music/' + input.files[0].name;
+                                values[input.name] = input.files[0]
                                 break;
                             default:
                                 values[input.name] = input.value;
