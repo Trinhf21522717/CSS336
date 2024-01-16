@@ -8,10 +8,14 @@
 //     }
 
 // }
+const fs = require('fs');
 module.exports = {
-    host: 'localhost',
-    user: 'root',
-    password: 'tuanlong',
-    database: 'dejavu',
-    insecureAuth: true
+    host: 'cs336.mysql.database.azure.com',
+    user: "admin_cs336",
+    password: "password_cs336",
+    database: "demo",
+    insecureAuth: true,
+    port: 3306,
+    ssl: { ca: fs.readFileSync("DigiCertGlobalRootCA.crt.pem") }
 }
+
