@@ -6,7 +6,7 @@ from os.path import isdir
 
 from dejavu import Dejavu
 from dejavu.logic.recognizer.file_recognizer import FileRecognizer
-from dejavu.logic.recognizer.microphone_recognizer import MicrophoneRecognizer
+# from dejavu.logic.recognizer.microphone_recognizer import MicrophoneRecognizer
 
 DEFAULT_CONFIG_FILE = "fingerprinting\dejavu.cnf.SAMPLE"
 
@@ -77,8 +77,9 @@ if __name__ == '__main__':
         source = args.recognize[0]
         opt_arg = args.recognize[1]
 
-        if source in ('mic', 'microphone'):
-            songs = djv.recognize(MicrophoneRecognizer, seconds=opt_arg)
-        elif source == 'file':
+        if source == 'file':
             songs = djv.recognize(FileRecognizer, opt_arg)
+        # elif source in ('mic', 'microphone'):
+        #     songs = djv.recognize(MicrophoneRecognizer, seconds=opt_arg)
+
         print(songs)
