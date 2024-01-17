@@ -34,7 +34,7 @@ module.exports = {
             response.pipe(file);
             file.on('finish', () => {
                 file.close(() => {
-                    exec(`python  fingerprinting/dejavu.py --fingerprint  "${'./public/' + name_file}" `, (error, stdout, stderr) => {
+                    exec(`python3  fingerprinting/dejavu.py --fingerprint  "${'./public/' + name_file}" `, (error, stdout, stderr) => {
                         if (error) {
                             console.error(`Error: ${error.message}`);
                             res.json({ 'mss': error.message })
@@ -43,7 +43,7 @@ module.exports = {
                         songs = stdout.replace(/\r/g, '')
                         songs = songs.split("\n")
                         idx = parseInt(songs[5])
-                        console.log(`python -c script output: ${idx}`);
+                        console.log(`python3 -c script output: ${idx}`);
                         try {
                             Music.createMusicbyID(idx, req.body.name.replace(/'/g, ''), req.body.singer.replace(/'/g, ''), './' + name_file, req.body.img)
                         }
@@ -74,13 +74,13 @@ module.exports = {
         // Write the Blob to a WAV file
         const filePath = 'audio.wav'
         fs.writeFileSync(filePath, audioBlob);
-        exec('python   fingerprinting/dejavu.py --recognize file audio.wav  ', (error, stdout, stderr) => {
+        exec('python3   fingerprinting/dejavu.py --recognize file audio.wav  ', (error, stdout, stderr) => {
             if (error) {
                 console.error(`Error: ${error.message}`);
                 return;
             }
             songs = stdout.replace(/\r?\n/g, '')
-            // console.log(`python -c script output: ${songs}`);
+            // console.log(`python3 -c script output: ${songs}`);
             res.json({ message: songs });
         })
     },
