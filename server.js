@@ -22,5 +22,4 @@ app.listen(port, () => {
     console.log('Server running at port http://localhost:' + port);
 });
 
-const process = require('node:process');
 console.log("Reccent: " + process.cwd());
