@@ -8,7 +8,7 @@ from dejavu import Dejavu
 from dejavu.logic.recognizer.file_recognizer import FileRecognizer
 # from dejavu.logic.recognizer.microphone_recognizer import MicrophoneRecognizer
 
-DEFAULT_CONFIG_FILE = "fingerprinting\dejavu.cnf.SAMPLE"
+DEFAULT_CONFIG_FILE = "fingerprinting/dejavu.cnf.SAMPLE"
 
 
 def init(configpath):
