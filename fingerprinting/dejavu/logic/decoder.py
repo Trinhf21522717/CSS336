@@ -9,6 +9,8 @@ from pydub.utils import audioop
 
 from dejavu.third_party import wavio
 
+from pydub.utils import which
+AudioSegment.converter = which("ffmpeg")
 
 def unique_hash(file_path: str, block_size: int = 2**20) -> str:
     """ Small function to generate a hash to uniquely generate

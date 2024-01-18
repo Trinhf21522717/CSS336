@@ -32,7 +32,7 @@ DATABASES = {
 
 # TABLE SONGS
 SONGS_TABLENAME = "songs"
-
+SUMMARYSONG="summarysong"
 # SONGS FIELDS
 FIELD_SONG_ID = 'song_id'
 FIELD_SONGNAME = 'song_name'
