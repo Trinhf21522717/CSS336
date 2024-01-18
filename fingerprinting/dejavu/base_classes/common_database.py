@@ -34,6 +34,7 @@ class CommonDatabase(BaseDatabase, metaclass=abc.ABCMeta):
             cur.execute(self.CREATE_SONGS_TABLE)
             cur.execute(self.CREATE_FINGERPRINTS_TABLE)
             cur.execute(self.DELETE_UNFINGERPRINTED)
+            cur.execute(self.CREATE_SUMMARY_SONGS_TABLE)
 
     def empty(self) -> None:
         """

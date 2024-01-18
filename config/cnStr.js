@@ -19,3 +19,12 @@ module.exports = {
     ssl: { ca: fs.readFileSync("DigiCertGlobalRootCA.crt.pem") }
 }
 
+
+
+// module.exports = {
+//     host: 'localhost',
+//     user: 'root',
+//     password: 'tuanlong',
+//     database: 'dejavu',
+//     insecureAuth: true
+// }

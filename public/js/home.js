@@ -272,7 +272,7 @@ const app = {
                     })
                 }
                 if (meununode && songnode) {
-                    const sidetop = meununode.offsetTop + 430
+                    const sidetop = meununode.offsetTop + 455
                     const sideleft = playlist.offsetLeft + 380
 
                     const data = JSON.parse(meununode.parentElement.getAttribute('data'))
@@ -399,6 +399,7 @@ const app = {
             method: 'POST',
             body: dataform
         }
+        list_songs_search.innerHTML = '<p style="text-align: center;">    Đang tìm kiếm...      </p>'
         fetch('/recordfile', option)
             .then(res => res.json())
             .then(res => {

@@ -7,7 +7,7 @@ from dejavu.base_classes.common_database import CommonDatabase
 from dejavu.config.settings import (FIELD_FILE_SHA1, FIELD_FINGERPRINTED,
                                     FIELD_HASH, FIELD_OFFSET, FIELD_SONG_ID,
                                     FIELD_SONGNAME, FIELD_TOTAL_HASHES,
-                                    FINGERPRINTS_TABLENAME, SONGS_TABLENAME)
+                                    FINGERPRINTS_TABLENAME, SONGS_TABLENAME,SUMMARYSONG)
 
 
 class MySQLDatabase(CommonDatabase):
@@ -26,6 +26,17 @@ class MySQLDatabase(CommonDatabase):
         ,   CONSTRAINT `pk_{SONGS_TABLENAME}_{FIELD_SONG_ID}` PRIMARY KEY (`{FIELD_SONG_ID}`)
         ,   CONSTRAINT `uq_{SONGS_TABLENAME}_{FIELD_SONG_ID}` UNIQUE KEY (`{FIELD_SONG_ID}`)
         ) ENGINE=INNODB;
+    """
+    CREATE_SUMMARY_SONGS_TABLE=f"""
+        CREATE TABLE IF NOT EXISTS `{SUMMARYSONG}` (
+        `{FIELD_SONG_ID}` MEDIUMINT UNSIGNED not null ,
+        name NVARCHAR(1000) ,
+        singer NVARCHAR(1000),
+        path NVARCHAR(1000),
+        img text(40000 ),
+        PRIMARY KEY (song_id),
+        CONSTRAINT fk_summarysong_song_id FOREIGN KEY (song_id) REFERENCES songs(song_id)  ON DELETE CASCADE
+        );
     """
 
     CREATE_FINGERPRINTS_TABLE = f"""
